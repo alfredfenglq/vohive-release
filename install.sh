@@ -249,7 +249,7 @@ USE_PROCD=1
 
 start_service() {
   procd_open_instance
-  procd_set_param command ${BIN_PATH} -c ${CONFIG_DIR}/config.yaml
+  procd_set_param command /bin/sh -c "cd ${ROOT_DIR} && exec ${BIN_PATH} -c ${CONFIG_DIR}/config.yaml"
   procd_set_param directory ${ROOT_DIR}
   procd_set_param respawn 3600 5 5
   procd_set_param stdout 1
