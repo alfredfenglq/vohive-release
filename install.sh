@@ -310,7 +310,8 @@ main() {
   need_cmd mktemp
   need_download_cmd
 
-  os="$(uname -s | tr '[:upper:]' '[:lower:]')"
+  #os="$(uname -s | tr '[:upper:]' '[:lower:]')"
+  os="$(uname -s | tr 'A-Z' 'a-z')"
   if [ "${os}" != "linux" ]; then
     err "不支持的系统: ${os}"
     exit 1
