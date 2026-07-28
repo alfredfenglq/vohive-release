@@ -258,7 +258,9 @@ start_service() {
 }
 EOF
 
-  run_root install -m 0755 "${tmp_init_path}" "${OPENWRT_INIT_PATH}"
+  #run_root install -m 0755 "${tmp_init_path}" "${OPENWRT_INIT_PATH}"
+  run_root cp "${tmp_init_path}" "${OPENWRT_INIT_PATH}"
+  run_root chmod 0755 "${OPENWRT_INIT_PATH}"
   run_root "${OPENWRT_INIT_PATH}" enable
   run_root "${OPENWRT_INIT_PATH}" restart
 }
