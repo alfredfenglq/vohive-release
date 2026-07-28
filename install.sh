@@ -358,7 +358,9 @@ main() {
     fi
   }
 
-  run_root install -m 0755 "${extracted}" "${BIN_PATH}"
+  #run_root install -m 0755 "${extracted}" "${BIN_PATH}"
+  run_root cp "${extracted}" "${BIN_PATH}"
+  run_root chmod 0755 "${BIN_PATH}"
 
   ACTIVE_PLATFORM="$(detect_platform)"
   service_registered=0
